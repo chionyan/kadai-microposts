@@ -27,6 +27,11 @@
           Followers<span class="badge"><%= @count_followers %></span>
         <% end %>
       </li>
+      <li class="<%= 'active' if current_page?(bookmark_posts_user_path(@user)) %>">
+        <%= link_to bookmark_posts_user_path(@user) do %>
+          Bookmarks<span class="badge"><%= @count_bookmarks %></span>
+        <% end %>
+      </li>
     </ul>
     <%= render 'users', users: @followings %>
   </div>

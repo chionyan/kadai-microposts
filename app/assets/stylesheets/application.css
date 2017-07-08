@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ .btn-toolbar form button {
+     margin-left: 5px;
+}

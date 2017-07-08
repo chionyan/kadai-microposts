@@ -39,6 +39,12 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def bookmark_posts
+    @user = User.find(params[:id])
+    @bookmarks = @user.bookmark_posts.order('created_at DESC').page(params[:page])
+    counts(@user)
+  end
+  
   private
   
   def user_params

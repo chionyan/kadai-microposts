@@ -13,9 +13,12 @@
         <div>
           <p><%= micropost.content %></p>
         </div>
-        <div>
+        <div class="btn-toolbar">
+          <%= render 'bookmarks/bookmark_button', micropost: micropost %>
           <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger ntn-xs' %>
+            <%= link_to micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger ntn-xs' do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
           <% end %>
         </div>
       </div>

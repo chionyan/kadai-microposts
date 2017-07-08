@@ -1,0 +1,11 @@
+<% if current_user.bookmarking?(micropost) %>
+  <%= form_for(current_user.bookmarks.find_by(micropost_id: micropost.id), html: { method: :delete }) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= button_tag '<span class="glyphicon glyphicon-bookmark"></span>'.html_safe, :type => "submit", :class =>"btn btn-info" %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.bookmarks.build) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= button_tag '<span class="glyphicon glyphicon-bookmark"></span>'.html_safe, :type => "submit", :class =>"btn btn-default" %>
+  <% end %>
+<% end %>
